@@ -1,0 +1,39 @@
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    
+  }
+  .basic {
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 1px solid grey ;
+   
+  }
+  .right {
+    font-weight: bold;
+  }
+  .property {
+    color: #444c59;
+  
+  }
+  .info {
+    display: flex;
+    justify-content:space-between;
+    font-size: 18px;
+  }
+  .service{
+    display: flex;
+    font-size: 18px;
+    padding-bottom: 16px;
+  }
+  .margin_service {
+   margin-right:15px ;
+   /* padding-top: 2px; */
+  }
+  .icon {
+    font-size: 24px;
+  }
+  .padding_service{
+    padding-right: 10px;
+  }
