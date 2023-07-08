@@ -34,7 +34,7 @@ export interface DialogTitleProps {
     children?: React.ReactNode;
     onClose?: () => void;
     openDialog: boolean;
-    closeDialog?: (closeDialog:any) => void;
+    closeDialog?: (closeDialog: any) => void;
 }
 
 
@@ -71,27 +71,26 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 }
 
 
-export default function FilterDialog( { onClose, openDialog,closeDialog }:DialogTitleProps) {
- 
+export default function FilterDialog({ onClose, openDialog, closeDialog }: DialogTitleProps) {
+
     const [open, setOpen] = React.useState(openDialog);
-  
+
     const listBedRoms = ['Any', '1', '2', '3', '4', '5+']
     const listProjects = ['Empire City', 'The River', 'Gateway', 'Nassim', 'Q2 Fraser']
     const listType = ['Apartment', 'Studio', 'Penthouse', 'Duplex', 'Garden']
-   
+
     const [sliderValue, setSliderValue] = useState<number>(500);
 
-    
+
     const handleClose = () => {
         setOpen(false);
-        closeDialog(open)
     };
 
-   
+
     const handleSliderChange = (event: any, newValue: number | number[]) => {
         setSliderValue(newValue as number);
         console.log(newValue)
-      };
+    };
 
     return (
         <div>
@@ -107,11 +106,11 @@ export default function FilterDialog( { onClose, openDialog,closeDialog }:Dialog
                 maxWidth='lg'
                 sx={{ borderRadius: '15px' }}
             >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                <BootstrapDialogTitle  onClose={handleClose}>
                     Filters
                 </BootstrapDialogTitle>
 
-                <DialogContent dividers >
+                <DialogContent dividers>
                     <Typography gutterBottom variant='h6'>
                         Price range
                     </Typography>
@@ -138,8 +137,8 @@ export default function FilterDialog( { onClose, openDialog,closeDialog }:Dialog
                                 defaultValue={0}
                             />
                         </Box>
-                        <Box sx={{alignSelf:'center'}}>
-                            <Typography variant='body1' >-</Typography>
+                        <Box sx={{ alignSelf: 'center' }}>
+                            <Typography variant='body1'>-</Typography>
                         </Box>
                         <Box>
                             <TextField
@@ -150,7 +149,6 @@ export default function FilterDialog( { onClose, openDialog,closeDialog }:Dialog
                                     startAdornment: <InputAdornment position="start">USD</InputAdornment>,
                                 }}
                                 value={sliderValue}
-                                // defaultValue={10000}
                                 onChange={(event) => setSliderValue(parseInt(event.target.value))}
                             />
                         </Box>
@@ -158,45 +156,67 @@ export default function FilterDialog( { onClose, openDialog,closeDialog }:Dialog
                     <Typography gutterBottom variant='h6'>
                         Property type
                     </Typography>
-                    <Grid container >
-                        <FormGroup >
-                            <Stack direction='row' useFlexGap flexWrap="wrap" spacing={2} >
-                                {listType.map((typeApartment) => <FormControlLabel control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} label={typeApartment} key={typeApartment} />)}
+                    <Grid container>
+                        <FormGroup>
+                            <Stack direction='row' useFlexGap flexWrap="wrap" spacing={2}>
+                                {listType.map((typeApartment) => (
+                                    <FormControlLabel
+                                        key={typeApartment}
+                                        control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />}
+                                        label={typeApartment}
+                                    />
+                                ))}
                             </Stack>
                         </FormGroup>
                     </Grid>
                     <Typography gutterBottom variant='h6'>
                         Project
                     </Typography>
-                    <FormGroup >
+                    <FormGroup>
                         <Stack direction='row' useFlexGap flexWrap="wrap" spacing={2}>
-                            {listProjects.map((projectName) => <FormControlLabel control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} key={projectName} label={projectName} />)}
+                            {listProjects.map((projectName) => (
+                                <FormControlLabel
+                                    key={projectName}
+                                    control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />}
+                                    label={projectName}
+                                />
+                            ))}
                         </Stack>
                     </FormGroup>
                     <Typography gutterBottom variant='h6'>
                         Bedrooms
                     </Typography>
                     <Stack direction='row' spacing={3} mt={2} useFlexGap flexWrap="wrap">
-                        {listBedRoms.map((bedRoom) => {
-                            return <Button key={bedRoom} variant='outlined'> {bedRoom}</Button>
-                        })}
+                        {listBedRoms.map((bedRoom) => (
+                            <Button key={bedRoom} variant='outlined'>
+                                {bedRoom}
+                            </Button>
+                        ))}
                     </Stack>
                     <Typography gutterBottom variant='h6' mt={2}>
                         Utilities
                     </Typography>
                     <Stack direction='row' spacing={3} mt={2}>
-                        <FormControlLabel control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} label="Full Furnished" />
-                        <FormControlLabel control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />} label="Basic Furnished" />
+                        <FormControlLabel
+                            control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />}
+                            label="Full Furnished"
+                        />
+                        <FormControlLabel
+                            control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />}
+                            label="Basic Furnished"
+                        />
                     </Stack>
                 </DialogContent>
                 <Stack direction='row' justifyContent='space-between'>
                     <DialogActions>
                         <Button>
-                            <Typography sx={{ textDecoration: 'underline', fontSize: '15px', fontWeight: '500' }} variant='body1'>Clear all</Typography>
+                            <Typography sx={{ textDecoration: 'underline', fontSize: '15px', fontWeight: '500' }} variant='body1'>
+                                Clear all
+                            </Typography>
                         </Button>
                     </DialogActions>
                     <DialogActions>
-                        <Button  variant='contained' >Show 662 stays</Button>
+                        <Button variant='contained'>Show 662 stays</Button>
                     </DialogActions>
                 </Stack>
             </Dialog>

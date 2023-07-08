@@ -42,9 +42,9 @@ export default function FilterBar() {
 
     const handleClickOpen = () => {
         setIsOpen(true);
-     
-        return(
-            <FilterDialog openDialog={isOpen} closeDialog={handleCloseDialog}/>
+
+        return (
+            <FilterDialog openDialog={isOpen} closeDialog={handleCloseDialog} />
         )
     };
 
@@ -55,25 +55,15 @@ export default function FilterBar() {
     };
 
     const handleCloseDialog = (isClose: any) => {
-        if(isClose) {
+        if (isClose) {
             // return <FilterDialog/>
             console.log(isClose)
         }
-       
-    }
 
-    const Transition = React.forwardRef(function Transition(
-        props: TransitionProps & {
-            children: React.ReactElement<any, any>;
-        },
-        ref: React.Ref<unknown>,
-    ) {
-        return <Slide direction="up" ref={ref} {...props} />;
-    });
+    }
     return (
 
         <Grid container direction={'row'} justifyContent={'space-between'} >
-
             <Grid item style={{ minWidth: '100px' }}>
                 <Tooltip title="Search">
                     <CustomButton disableRipple disableElevation>
@@ -92,14 +82,10 @@ export default function FilterBar() {
                 </Tooltip>
             </Grid>
             <Grid item display={'flex'}>
-                <Tooltip title="Filter">
                     <CustomButton disableRipple disableElevation onClick={handleClickOpen}>
                         <CiSliderHorizontal style={{ alignSelf: 'center', fontSize: '25px', color: 'black' }} />
-                        {isOpen && <FilterDialog onClose={handleClose} openDialog={isOpen}  />}
+                        {isOpen && <FilterDialog  openDialog={isOpen} />}
                     </CustomButton>
-                   
-
-                </Tooltip>
             </Grid>
         </Grid>
     )

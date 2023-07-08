@@ -11,6 +11,7 @@ import FilterBar from '../FilterBar';
 import { styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
+import Search from '../Search';
 interface Props {
   window?: () => Window;
 }
@@ -47,13 +48,16 @@ export function Header(props: Props) {
         <AppBar position="fixed" style={{ backgroundColor: 'white' }}>
           <Toolbar sx={{ display: 'flex', flexDirection: 'row', justifyContent: "space-between", margin: '5px 0px' }} >
             <Grid item>
-              <Typography variant="h6" component="div" sx={{ display: { xs: 'none', sm: "block", md: "block", color: 'black' } }} >
+              <Typography variant="h6" component="div" sx={{ display: { xs: 'none', sm: "block", md: "block", color: '#1976d2' } }} >
                 Adorable Home
               </Typography>
             </Grid>
             <Grid sx={{ border: "1px solid grey", borderRadius: "50px" }} item xs={12} sm={6} md={6} lg={3} >
               <FilterBar />
+              {/* <Search/> */}
             </Grid>
+
+
             <Grid item >
               <Tooltip title="Account">
                 <RoundedButton variant="contained"

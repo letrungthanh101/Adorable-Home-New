@@ -33,12 +33,13 @@ export default function HomePage() {
 
     <Grid container  justifyContent='center' alignItems="center" spacing={2}>
    
-      {apartment.map((apartmentItem) => (
+      {/* {apartment.map((apartmentItem) => (
         
           <Apartment Apartment={apartmentItem} key={apartmentItem.id} />
        
-      ))}
-      {/* <Detail /> */}
+      ))} */}
+      
+      <Detail />
     </Grid >
 
   )
